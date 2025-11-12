@@ -139,29 +139,6 @@ def optimize_parameters(data):
 - Checked parameter values against physical constraints
 - Verified L1 distance calculation method
 
-## Repository Structure
-
-```
-.
-├── README.md                    # This file
-├── requirements.txt             # Python dependencies
-├── data/
-│   └── xy_data.csv             # Original data points
-├── src/
-│   ├── optimizer.py            # Main optimization code
-│   ├── curve_fitter.py         # Curve fitting functions
-│   ├── visualizer.py           # Plotting functions
-│   └── utils.py                # Utility functions
-├── notebooks/
-│   └── analysis.ipynb          # Jupyter notebook with analysis
-├── results/
-│   ├── parameters.json         # Optimal parameters
-│   ├── fitted_curve.csv        # Predicted curve points
-│   └── comparison_plot.png     # Visual comparison
-└── tests/
-    └── test_optimizer.py       # Unit tests
-```
-
 ## Installation & Usage
 
 ### Prerequisites
@@ -230,27 +207,3 @@ The repository includes several visualizations:
 The curve is defined by:
 - **x(t)** = t·cos(θ) - exp(M|t|)·sin(0.3t)·sin(θ) + X
 - **y(t)** = 42 + t·sin(θ) + exp(M|t|)·sin(0.3t)·cos(θ)
-
-### Derivatives (for gradient-based methods)
-
-```
-∂x/∂θ = -t·sin(θ) - exp(M|t|)·sin(0.3t)·cos(θ)
-∂x/∂M = -sign(t)·t·exp(M|t|)·sin(0.3t)·sin(θ)
-∂x/∂X = 1
-
-∂y/∂θ = t·cos(θ) - exp(M|t|)·sin(0.3t)·sin(θ)
-∂y/∂M = sign(t)·t·exp(M|t|)·sin(0.3t)·cos(θ)
-∂y/∂X = 0
-```
-
-## Performance Analysis
-
-| Metric | Value |
-|--------|-------|
-| L1 Distance | 0.1234 |
-| Optimization Time | ~45 seconds |
-| Number of Function Evaluations | ~12,500 |
-| Final Convergence Tolerance | 1e-6 |
-| Maximum Residual | 2.34 pixels |
-| Mean Absolute Error (X) | 0.08 pixels |
-| Mean Absolute Error (Y) | 0.06 pixels |
